@@ -16,3 +16,4 @@ const storage = multer.diskStorage({
   
   // Initialize upload object
 exports.upload = multer({ storage: storage });
+
