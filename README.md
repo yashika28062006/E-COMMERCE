@@ -107,4 +107,6 @@ In the upcoming milestone, we will build more advanced features for the applicat
 **Milestone 7: create a backend endpoint for user login.**
 
 **Milestone 8:create a frontend card component for products and design a homepage to display these cards for each product.**
+
+**Milestone 9: Creating product form.**
  
