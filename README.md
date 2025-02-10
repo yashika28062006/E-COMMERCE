@@ -105,4 +105,12 @@ In this milestone, we created a backend endpoint for the Signup page to securely
 In the upcoming milestone, we will build more advanced features for the application, enhancing user experience and security measures.
 
 **Milestone 7: create a backend endpoint for user login.**
+
+
+**Milestone 8: create a frontend card component for products and design a homepage to display these cards for each product.**
+
+**Milestone 9: creating a product form.**
+
+
+**Milestone 10: we will create a mongoose schema for products and create and endpoint to store the product details.**
  
