@@ -115,3 +115,5 @@ In the upcoming milestone, we will build more advanced features for the applicat
 **Milestone 10: we will create a mongoose schema for products and create and endpoint to store the product details.**
  
 **Milestone 11:  will make our home page that will display all the products dynamic.**
+
+**Milestone 12:we will make our My products page that will display all the products That i was added according to my mail.**
