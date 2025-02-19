@@ -117,3 +117,23 @@ In the upcoming milestone, we will build more advanced features for the applicat
 **Milestone 11:  will make our home page that will display all the products dynamic.**
 
 **Milestone 12:we will make our My products page that will display all the products That i was added according to my mail.**
+
+## Milestone 13:
+Created a backend endpoint in Express to delete a product by its ID from MongoDB.
+Used MongoDB’s findByIdAndDelete() method to remove the product.
+Updated the frontend UI by adding a Delete button to each product card.
+When the button is clicked, it sends a DELETE request to the backend with the product ID.
+Ensured that the product disappears from the UI after successful deletion.
+Tested the API using Postman or an API client.
+Committed the changes to GitHub and updated the README with Milestone 14 progress.
+Submitted the repository link as required.
+
+## Milestone 14:
+Created a backend endpoint in Express to update a product by its ID in MongoDB.
+Used MongoDB’s findByIdAndUpdate() method to modify the product details.
+Added an Edit button to each product card in the frontend UI.
+When the button is clicked, the existing product details are auto-filled into a form.
+Allowed users to modify and save the updated details.
+Sent a PUT request to update the product in the database.
+Ensured the updated product details appear in the UI after a successful update.
+Committed all changes to GitHub and updated the README with Milestone 13 progress.

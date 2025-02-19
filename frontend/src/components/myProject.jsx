@@ -1,239 +1,74 @@
-// backend/controllers/product.js
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from 'axios'
+function Myproduct({ _id, name, images, description, price }) {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const navigate = useNavigate();
 
-const express = require('express');
-const Product = require('../model/product');
-const User = require('../model/user');
-const router = express.Router();
-const { pupload } = require("../multer");
-const path = require('path');
+    useEffect(() => {
+        if (!images || images.length === 0) return;
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 2000);
+        return () => clearInterval(interval);
+    }, [images]);
 
-// Validation function
-const validateProductData = (data) => {
-    const errors = [];
+    const currentImage = images && images.length > 0 ? images[currentIndex] : null;
 
-    if (!data.name) errors.push('Product name is required');
-    if (!data.description) errors.push('Product description is required');
-    if (!data.category) errors.push('Product category is required');
-    if (!data.price || isNaN(data.price) || Number(data.price) <= 0) errors.push('Valid product price is required');
-    if (!data.stock || isNaN(data.stock) || Number(data.stock) < 0) errors.push('Valid product stock is required');
-    if (!data.email) errors.push('Email is required');
+    const handleEdit = () => {
+        navigate(`/create-product/${_id}`);
+    };
 
-    return errors;
-};
-
-// Route: Create a new product
-router.post('/create-product', pupload.array('images', 10), async (req, res) => {
-    console.log("🛒 Creating product");
-    const { name, description, category, tags, price, stock, email } = req.body;
-
-    // Map uploaded files to accessible URLs
-    const images = req.files.map((file) => {
-        return `/products/${path.basename(file.path)}`;
-    });
-    console.log("req images ",images)
-console.log("req",name, description, category, tags, price, stock, email )
-    // Validate input data
-    const validationErrors = validateProductData({ name, description, category, price, stock, email });
-    if (validationErrors.length > 0) {
-        return res.status(400).json({ errors: validationErrors });
-    }
-
-    if (images.length === 0) {
-        return res.status(400).json({ error: 'At least one image is required' });
-    }
-
-    try {
-        // Check if user exists
-        const user = await User.findOne({ email });
-        if (user) {
-            return res.status(400).json({ error: 'Email does not exist in the users database' });
+    const handleDelete = async () => {
+        try {
+            const response = await axios.delete(
+                `http://localhost:8000/api/v2/product/delete-product/${_id}`
+            );
+            if (response.status === 200) {
+                alert("Product deleted successfully!");
+                // Reload the page or fetch products again
+                window.location.reload();
+            }
+        } catch (err) {
+            console.error("Error deleting product:", err);
+            alert("Failed to delete product.");
         }
+    };
 
-        // Create and save the new product
-        const newProduct = new Product({
-            name,
-            description,
-            category,
-            tags,
-            price,
-            stock,
-            email,
-            images,
-        });
-        console.log("newProduct: ")
-console.log("newProduct: ", newProduct)
-        await newProduct.save();
+    return (
+        <div className="bg-neutral-200 p-4 rounded-lg shadow-md flex flex-col justify-between">
+            <div className="w-full">
+                {currentImage && (
+                    <img
+                        src={`http://localhost:8000${currentImage}`}
+                        alt={name}
+                        className="w-full h-56 object-cover rounded-lg mb-2"
+                    />
+                )}
+                <h2 className="text-lg font-bold">{name}</h2>
+                <p className="text-sm opacity-75 mt-2">{description}</p>
+            </div>
+            <div className="w-full mt-4">
+                <p className="text-lg font-bold my-2">${price.toFixed(2)}</p>
+                <button
+                    className="w-full text-white px-4 py-2 rounded-md bg-neutral-900 hover:bg-neutral-700 transition duration-300"
+                    onClick={handleEdit}
+                >
+                    Edit
+                </button>
 
-        res.status(201).json({
-            message: '✅ Product created successfully',
-            product: newProduct,
-        });
-    } catch (err) {
-        console.error(' Server error:', err);
-        res.status(500).json({ error: 'Server error. Could not create product.' });
-    }
-});
+                <button
+                    onClick={handleDelete}
+                    className="w-full text-white px-4 py-2 rounded-md bg-red-600 hover:bg-red-400 transition duration-300 mt-2"
+                >
+                    Delete
+                </button>
 
-router.get('/get-products', async (req, res) => {
-    try {
-        const products = await Product.find();
-        const productsWithFullImageUrl = products.map(product => {
-            if (product.images && product.images.length > 0) {
-                product.images = product.images.map(imagePath => {
-                    // Image URLs are already prefixed with /products
-                    return imagePath;
-                });
-            }
-            return product;
-        });
-        res.status(200).json({ products: productsWithFullImageUrl });
-    } catch (err) {
-        console.error(' Server error:', err);
-        res.status(500).json({ error: 'Server error. Could not fetch products.' });
-    }
-});
-
-router.get('/my-products', async (req, res) => {
-    const { email } = req.query;
-    try {
-        const products = await Product.find({ email });
-        const productsWithFullImageUrl = products.map(product => {
-            if (product.images && product.images.length > 0) {
-                product.images = product.images.map(imagePath => {
-                    return imagePath;
-                });
-            }
-            return product;
-        });
-        res.status(200).json({ products: productsWithFullImageUrl });
-    } catch (err) {
-        console.error(' Server error:', err);
-        res.status(500).json({ error: 'Server error. Could not fetch products.' });
-    }
+            </div>
+        </div>
+    );
 }
-);
 
-
-router.get('/product/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const product = await Product.findById(id);
-        if (!product) {
-            return res.status(404).json({ error: 'Product not found.' });
-        }
-        res.status(200).json({ product });
-    } catch (err) {
-        console.error('Server error:', err);
-        res.status(500).json({ error: 'Server error. Could not fetch product.' });
-    }
-});
-
-router.put('/update-product/:id', pupload.array('images', 10), async (req, res) => {
-    const { id } = req.params;
-    const { name, description, category, tags, price, stock, email } = req.body;
-
-    try {
-        const existingProduct = await Product.findById(id);
-        if (!existingProduct) {
-            return res.status(404).json({ error: 'Product not found.' });
-        }
-
-        let updatedImages = existingProduct.images;
-        if (req.files && req.files.length > 0) {
-            updatedImages = req.files.map((file) => {
-                return `/products/${path.basename(file.path)}`;
-            });
-        }
-
-        const validationErrors = validateProductData({
-            name,
-            description,
-            category,
-            price,
-            stock,
-            email,
-        });
-
-        if (validationErrors.length > 0) {
-            return res.status(400).json({ errors: validationErrors });
-        }
-
-        existingProduct.name = name;
-        existingProduct.description = description;
-        existingProduct.category = category;
-        existingProduct.tags = tags;
-        existingProduct.price = price;
-        existingProduct.stock = stock;
-        existingProduct.email = email;
-        existingProduct.images = updatedImages;
-
-        await existingProduct.save();
-
-        res.status(200).json({
-            message: '✅ Product updated successfully',
-            product: existingProduct,
-        });
-    } catch (err) {
-        console.error('Server error:', err);
-        res.status(500).json({ error: 'Server error. Could not update product.' });
-    }
-});
-router.put('/update-product/:id', pupload.array('images', 10), async (req, res) => {
-    const { id } = req.params;
-    const { name, description, category, tags, price, stock, email } = req.body;
-
-
-    try {
-        const existingProduct = await Product.findById(id);
-        if (!existingProduct) {
-            return res.status(404).json({ error: 'Product not found.' });
-        }
-
-
-        let updatedImages = existingProduct.images;
-        if (req.files && req.files.length > 0) {
-            updatedImages = req.files.map((file) => {
-                return `/products/${path.basename(file.path)}`;
-            });
-        }
-
-
-        const validationErrors = validateProductData({
-            name,
-            description,
-            category,
-            price,
-            stock,
-            email,
-        });
-
-
-        if (validationErrors.length > 0) {
-            return res.status(400).json({ errors: validationErrors });
-        }
-
-
-        existingProduct.name = name;
-        existingProduct.description = description;
-        existingProduct.category = category;
-        existingProduct.tags = tags;
-        existingProduct.price = price;
-        existingProduct.stock = stock;
-        existingProduct.email = email;
-        existingProduct.images = updatedImages;
-
-
-        await existingProduct.save();
-
-
-        res.status(200).json({
-            message: '✅ Product updated successfully',
-            product: existingProduct,
-        });
-    } catch (err) {
-        console.error('Server error:', err);
-        res.status(500).json({ error: 'Server error. Could not update product.' });
-    }
-});
-
-module.exports = router;
+export default Myproduct;
