@@ -104,6 +104,20 @@ In this milestone, we created a backend endpoint for the Signup page to securely
 **Next Steps:**
 In the upcoming milestone, we will build more advanced features for the application, enhancing user experience and security measures.
 
+**Milestone 7: create a backend endpoint for user login.**
+
+
+**Milestone 8: create a frontend card component for products and design a homepage to display these cards for each product.**
+
+**Milestone 9: creating a product form.**
+
+
+**Milestone 10: we will create a mongoose schema for products and create and endpoint to store the product details.**
+ 
+**Milestone 11:  will make our home page that will display all the products dynamic.**
+
+**Milestone 12:we will make our My products page that will display all the products That i was added according to my mail.**
+
 ## Milestone 13:
 Created a backend endpoint in Express to delete a product by its ID from MongoDB.
 Used MongoDB’s findByIdAndDelete() method to remove the product.
@@ -113,6 +127,9 @@ Ensured that the product disappears from the UI after successful deletion.
 Tested the API using Postman or an API client.
 Committed the changes to GitHub and updated the README with Milestone 14 progress.
 Submitted the repository link as required.
+
+
+
 ## Milestone 14:
 Created a backend endpoint in Express to update a product by its ID in MongoDB.
 Used MongoDB’s findByIdAndUpdate() method to modify the product details.
@@ -122,4 +139,19 @@ Allowed users to modify and save the updated details.
 Sent a PUT request to update the product in the database.
 Ensured the updated product details appear in the UI after a successful update.
 Committed all changes to GitHub and updated the README with Milestone 13 progress.
+
+
+## Milestone:15:
+Created a Nav component containing links to:
+Home
+My Products
+Add Product
+Cart
+Implemented React Router to enable seamless navigation between pages.
+Ensured responsiveness using CSS/Flexbox/Tailwind, making the navbar adapt to all screen sizes.
+Added the Nav component to all pages for consistency.
+Used state management (if needed) for active link highlighting.
+Tested navigation to confirm smooth transitions.
+Committed all changes to GitHub and updated the README with Milestone 15 details.
+
 
