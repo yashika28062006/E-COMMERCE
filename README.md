@@ -137,3 +137,16 @@ Allowed users to modify and save the updated details.
 Sent a PUT request to update the product in the database.
 Ensured the updated product details appear in the UI after a successful update.
 Committed all changes to GitHub and updated the README with Milestone 13 progress.
+
+## Milestone:15:
+Created a Nav component containing links to:
+Home
+My Products
+Add Product
+Cart
+Implemented React Router to enable seamless navigation between pages.
+Ensured responsiveness using CSS/Flexbox/Tailwind, making the navbar adapt to all screen sizes.
+Added the Nav component to all pages for consistency.
+Used state management (if needed) for active link highlighting.
+Tested navigation to confirm smooth transitions.
+Committed all changes to GitHub and updated the README with Milestone 15 details.
