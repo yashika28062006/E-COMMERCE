@@ -104,7 +104,7 @@ In this milestone, we created a backend endpoint for the Signup page to securely
 **Next Steps:**
 In the upcoming milestone, we will build more advanced features for the application, enhancing user experience and security measures.
 
-## Milestone 14:
+## Milestone 13:
 Created a backend endpoint in Express to delete a product by its ID from MongoDB.
 Used MongoDB’s findByIdAndDelete() method to remove the product.
 Updated the frontend UI by adding a Delete button to each product card.
