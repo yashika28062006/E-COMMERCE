@@ -1,23 +1,25 @@
 /* eslint-disable no-unused-vars */
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css'
-import React from 'react'
-import {Login,Signup,Home, MyProducts} from "./routes/routes"
-import CreateProduct from "./pages/createproduct";
 
-function App(){
-  return(
+import './App.css';
+import React from 'react';
+import {Login,Signup,Home, CreateProduct, MyProducts, Cart, ProductDetails} from "../Routes/Routes"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+function App() {
+  return (
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/signup' element={<Signup/>}/>
-      <Route path='/CreateProduct' element={<CreateProduct/>}/>
-      <Route path='/myProducts' element={<MyProducts/>}/>
+    <Route path='/' element={<Home/>}/>
+    <Route path='/login' element={<Login/>}/>
+    <Route path='/create-user' element={<Signup/>}/>
+    <Route path='/create-product' element={<CreateProduct/>}/>  
+    {/* For edit product by id */}
+    <Route path="/create-product/:id" element={<CreateProduct />} />
+    <Route path="/my-products" element={<MyProducts/>} />
+    <Route path="/cart" element={<Cart/>} />
+    <Route path="/product/:id" element={<ProductDetails />} />
     </Routes>
     </BrowserRouter>
-  )
-  
+  );
 }
-export default App;
 
+export default App;

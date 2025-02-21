@@ -129,6 +129,8 @@ Committed the changes to GitHub and updated the README with Milestone 14 progres
 Submitted the repository link as required.
 
 
+---
+
 
 ## Milestone 14:
 Created a backend endpoint in Express to update a product by its ID in MongoDB.
@@ -140,6 +142,8 @@ Sent a PUT request to update the product in the database.
 Ensured the updated product details appear in the UI after a successful update.
 Committed all changes to GitHub and updated the README with Milestone 13 progress.
 
+
+---
 
 ## Milestone:15:
 Created a Nav component containing links to:
@@ -154,4 +158,17 @@ Used state management (if needed) for active link highlighting.
 Tested navigation to confirm smooth transitions.
 Committed all changes to GitHub and updated the README with Milestone 15 details.
 
+
+---
+
+# Milestone 16 - Product Info Page
+
+## Project Overview 🚀
+This milestone focuses on creating a product info page that displays all product details, allows users to select a quantity, and includes an "Add to Cart" button.
+
+## Learning Goals 🎯
+By completing this milestone, I have learned:
+How to create a new page to display product details.
+How to add a quantity selection feature.
+How to implement an "Add to Cart" button.
 
