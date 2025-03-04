@@ -6,14 +6,13 @@ import Nav from "../components/nav";
 import { IoIosAdd } from "react-icons/io";
 import { IoIosRemove } from "react-icons/io";
 
-
 export default function ProductDetails() {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [quantity, setQuantity] = useState(0); // 1. Initialize quantity state
-
+    const email = "yashikaedify@gmail.com";  
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -31,10 +30,8 @@ export default function ProductDetails() {
             }
         };
 
-
         fetchProduct();
     }, [id]);
-
 
     // Log the updated product state whenever it changes
     useEffect(() => {
@@ -44,18 +41,15 @@ export default function ProductDetails() {
         }
     }, [product]);
 
-
     // 2. Handler to increment quantity
     const handleIncrement = () => {
         setQuantity((prevQuantity) => prevQuantity + 1);
     };
 
-
     // 3. Handler to decrement quantity, ensuring it doesn't go below 1
     const handleDecrement = () => {
         setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
     };
-
 
     if (loading) {
         return (
@@ -64,7 +58,6 @@ export default function ProductDetails() {
             </div>
         );
     }
-
 
     if (error) {
         return (
@@ -76,7 +69,6 @@ export default function ProductDetails() {
         );
     }
 
-
     if (!product) {
         return (
             <div className="flex justify-center items-center h-screen">
@@ -84,6 +76,22 @@ export default function ProductDetails() {
             </div>
         );
     }
+// add to cart function 
+    const addtocart = async () => {
+        try {
+            const response = await axios.post(
+                "http://localhost:8000/api/v2/product/cart",
+                {
+                    userId: email,
+                    productId: id,
+                    quantity: quantity,
+                }
+            );
+            console.log("Added to cart:", response.data);
+        } catch (err) {
+            console.error("Error adding to cart:", err);
+        }
+    };
 
 
     return (
@@ -108,13 +116,11 @@ export default function ProductDetails() {
                             )}
                         </div>
 
-
                         {/* Information Section */}
                         <div className="md:w-1/2 p-6">
                             <h1 className="text-3xl font-semibold mb-4 text-gray-800">
                                 {product.name}
                             </h1>
-
 
                             <div className="mb-4">
                                 <h2 className="text-xl font-medium text-gray-700">
@@ -125,7 +131,6 @@ export default function ProductDetails() {
                                 </p>
                             </div>
 
-
                             <div className="flex flex-wrap gap-x-5 my-2">
                                 <div>
                                     <h2 className="text-xl font-medium text-gray-700">
@@ -135,7 +140,6 @@ export default function ProductDetails() {
                                         {product.category}
                                     </p>
                                 </div>
-
 
                                 {product.tags && product.tags.length > 0 && (
                                     <div>
@@ -155,7 +159,6 @@ export default function ProductDetails() {
                                     </div>
                                 )}
                             </div>
-
 
                             <div className="flex flex-wrap gap-x-5 mt-3 mb-5 items-start">
                                 <div className="flex flex-col gap-y-3">
@@ -194,13 +197,11 @@ export default function ProductDetails() {
                                 </div>
                             </div>
 
-
                             <div className="flex flex-wrap gap-x-5 my-3">
-                                <button className="bg-black text-white px-5 py-2 rounded-full hover:bg-neutral-800 hover:-translate-y-1.5 active:translate-y-0 transition-transform duration-200 ease-in-out active:duration-0 active:ease-linear">
+                                <button className="bg-black text-white px-5 py-2 rounded-full hover:bg-neutral-800 hover:-translate-y-1.5 active:translate-y-0 transition-transform duration-200 ease-in-out active:duration-0 active:ease-linear" onClick={addtocart}>
                                     Add to Cart
                                 </button>
                             </div>
-
 
                         </div>
                     </div>
