@@ -128,7 +128,9 @@ Tested the API using Postman or an API client.
 Committed the changes to GitHub and updated the README with Milestone 14 progress.
 Submitted the repository link as required.
 
+
 ---
+
 
 ## Milestone 14:
 Created a backend endpoint in Express to update a product by its ID in MongoDB.
@@ -139,6 +141,7 @@ Allowed users to modify and save the updated details.
 Sent a PUT request to update the product in the database.
 Ensured the updated product details appear in the UI after a successful update.
 Committed all changes to GitHub and updated the README with Milestone 13 progress.
+
 
 ---
 
@@ -155,7 +158,9 @@ Used state management (if needed) for active link highlighting.
 Tested navigation to confirm smooth transitions.
 Committed all changes to GitHub and updated the README with Milestone 15 details.
 
+
 ---
+
 # Milestone 16 - Product Info Page
 
 ## Project Overview 🚀
@@ -166,6 +171,7 @@ By completing this milestone, I have learned:
 How to create a new page to display product details.
 How to add a quantity selection feature.
 How to implement an "Add to Cart" button.
+
 
 # Milestone 17: Cart Functionality
 
@@ -188,9 +194,11 @@ In this milestone, we implemented the cart functionality by creating a schema to
 
 ---
 
+
 Milestone 18: Creating an end point for cart page
 In this milestone, we implemented a backend endpoint to fetch all the products inside a user's cart. This functionality is essential for displaying the cart contents on the cart page.
 Backend: API Integration Created a new API endpoint to fetch all products in a user's cart. Implemented server-side logic to retrieve the cart contents from the database. Frontend: Cart Page Designed a new Cart Page component that displays the products in the user's cart. Used React Router to navigate to the Cart Page. State Management and API Integration Fetched the cart contents from the backend using the API endpoint. The final product will have the following features: A user can view all products on the homepage. A user can view product details on a dedicated product info page. A user can add products to their cart. A user can view their cart contents on the cart page.
+
 
 #  Milestone 19: Designing a Component for Your Entity
 
@@ -202,6 +210,7 @@ By the end of this milestone, I have:
 - Created a **cart frontend page** that displays products inside the cart.
 - Added **+ and - buttons** to update product quantity.
 - Built **backend endpoints** to increase and decrease product quantity.
+
 
 ## Milestone 20 - Profile Page & Backend Endpoint
 
@@ -215,3 +224,4 @@ Designed a frontend profile page to display user details.
 Implemented sections for profile photo, name, and email.
 Added an address section with an "Add Address" button.
 Displayed a "No address found" message when no addresses are available.
+ 
