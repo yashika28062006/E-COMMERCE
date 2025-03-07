@@ -202,3 +202,16 @@ By the end of this milestone, I have:
 - Created a **cart frontend page** that displays products inside the cart.
 - Added **+ and - buttons** to update product quantity.
 - Built **backend endpoints** to increase and decrease product quantity.
+
+## Milestone 20 - Profile Page & Backend Endpoint
+
+### Overview
+In this milestone, we developed a profile page frontend and created a backend endpoint to retrieve and display user data. The profile page includes user details such as profile photo, name, email, and addresses.
+
+### Learning Goals 🎯
+By completing this milestone, we:
+Created a backend endpoint to fetch user data.
+Designed a frontend profile page to display user details.
+Implemented sections for profile photo, name, and email.
+Added an address section with an "Add Address" button.
+Displayed a "No address found" message when no addresses are available.
