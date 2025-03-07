@@ -200,4 +200,17 @@ In this milestone, we implemented a backend endpoint to fetch all the products i
 Backend: API Integration Created a new API endpoint to fetch all products in a user's cart. Implemented server-side logic to retrieve the cart contents from the database. Frontend: Cart Page Designed a new Cart Page component that displays the products in the user's cart. Used React Router to navigate to the Cart Page. State Management and API Integration Fetched the cart contents from the backend using the API endpoint. The final product will have the following features: A user can view all products on the homepage. A user can view product details on a dedicated product info page. A user can add products to their cart. A user can view their cart contents on the cart page.
 
 
+#  Milestone 19: Designing a Component for Your Entity
+
+##  Project Overview
+This milestone focuses on building a **cart page UI** and implementing functionality to **increase and decrease product quantity** using backend endpoints.
+
+## 🎯 Learning Goals
+By the end of this milestone, I have:
+- Created a **cart frontend page** that displays products inside the cart.
+- Added **+ and - buttons** to update product quantity.
+- Built **backend endpoints** to increase and decrease product quantity.
+
+
+
 
