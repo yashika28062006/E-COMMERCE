@@ -4,6 +4,7 @@ import './App.css';
 import React from 'react';
 import {Login,Signup,Home, CreateProduct, MyProducts, Cart, ProductDetails} from "../Routes/Routes"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CreateAddress from './pages/createAddress';
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
     <Route path="/my-products" element={<MyProducts/>} />
     <Route path="/cart" element={<Cart/>} />
     <Route path="/product/:id" element={<ProductDetails />} />
+    <Route path="/createAddress" element={<CreateAddress />} />
     </Routes>
     </BrowserRouter>
   );
