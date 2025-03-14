@@ -226,7 +226,9 @@ Added an address section with an "Add Address" button.
 Displayed a "No address found" message when no addresses are available.
 
 
+
  # Milestone 21: Address Input Form
+
 
 ## 🌟 Introduction
 Welcome to Milestone 21! In this milestone, we are focusing on creating a frontend form for address input. You will learn how to build a form that captures user information such as country, city, address1, address2, zip code, and address type.
@@ -239,7 +241,6 @@ Capture and store input values such as country, city, address1, address2, zip co
 Implement state management to store and manage address input values.
 Implement navigation so that when a user clicks "Add Address" on their profile, they are taken to this address input form.
 
----
 
 # Milestone 22: Backend Endpoint for Storing Address
 
@@ -252,3 +253,17 @@ This milestone focuses on creating a backend endpoint that will receive an addre
 Understand how to create an endpoint to receive data from the frontend.
 Learn how to store received data inside a database.
 Add the address to the user's address array in the database.
+
+# Milestone 23: Implementing Order Placement Functionality
+
+## Overview
+
+This milestone focuses on enhancing our e-commerce application by implementing the order placement functionality. We've added a "Place Order" button to the cart, created a select address page, and defined the product schema for orders in the backend.
+
+## Learning Goals
+
+  Add a "Place Order" button to the cart page.
+  Create a "Select Address" page to display and select delivery addresses.
+  Develop a backend endpoint to retrieve user addresses.
+  Define a Mongoose schema for storing order details.
+
