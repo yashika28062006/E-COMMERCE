@@ -243,3 +243,17 @@ This milestone focuses on enhancing our e-commerce application by implementing t
   Develop a backend endpoint to retrieve user addresses.
   Define a Mongoose schema for storing order details.
 
+---
+#  - Milestone 24: Order Confirmation Page
+
+## Description
+
+This milestone focuses on implementing the order confirmation page in our React application. We've added functionality to display the products being ordered, the selected delivery address, and the total cart value. Users can now review their order details before finalizing their purchase by clicking the "Place Order" button.
+
+## Learning Goals
+
+  Create an order confirmation page.
+  Display ordered products.
+  Display the selected delivery address.
+  Display the total cart value.
+  Implement a "Place Order" button.

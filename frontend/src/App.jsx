@@ -4,6 +4,7 @@ import './App.css';
 import React from 'react';
 import {Login,Signup,Home, CreateProduct, MyProducts, Cart, ProductDetails, Profile, CreateAddress, SelectAddress} from "./routes/routes"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import OrderConfirmation from './pages/OrderConfirmation';
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +21,7 @@ function App() {
     <Route path="/profile" element={<Profile />} />
     <Route path='/create-address' element={<CreateAddress />} />
     <Route path='/select-address' element={<SelectAddress/>}/>
+    <Route path='/order-confirmation' element={<OrderConfirmation/>}/>
     </Routes>
     </BrowserRouter>
   );
