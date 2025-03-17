@@ -257,3 +257,16 @@ This milestone focuses on implementing the order confirmation page in our React 
   Display the selected delivery address.
   Display the total cart value.
   Implement a "Place Order" button.
+
+
+# Milestone 25: Backend Endpoint for Place Order
+
+## Overview
+
+In this milestone, we focused on creating a backend endpoint that allows users to place orders. This involved receiving product, user, and address details, retrieving the user's _id using their email, and storing order details in the MongoDB order collection.
+
+## Learning Goals
+
+  Create a backend endpoint that handles order placement.
+  Retrieve user information based on their email.
+  Store order details in a MongoDB collection using a defined schema.
