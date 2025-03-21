@@ -280,3 +280,8 @@ In this milestone, we focused on creating a backend endpoint that allows users t
 Understand how to create a backend endpoint that filters data based on user email.
 Learn how to retrieve user ID from their email.
 Implement logic to fetch and return all orders associated with a user's ID.
+
+
+Milestone 27: Creating a frontpage and for displaying users orders
+Learning Goals You need to create an my-orders page You will send an get request to my-orders endpoint that we created in previous milestone. We will send user mail in to endpoint to get all the user orders Display all the user orders We will add my-orders page in navbar for better navigation.
+Created a My Orders page that sends a GET request to the my-orders endpoint created in the previous milestone. The user's email is sent to the endpoint to retrieve all their orders, which are then displayed on the page. Additionally, added the My Orders page to the navbar for improved navigation.
