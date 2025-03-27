@@ -309,3 +309,15 @@ Implement logic to fetch and return all orders associated with a user's ID.
 Milestone 27: Creating a frontpage and for displaying users orders
 Learning Goals You need to create an my-orders page You will send an get request to my-orders endpoint that we created in previous milestone. We will send user mail in to endpoint to get all the user orders Display all the user orders We will add my-orders page in navbar for better navigation.
 Created a My Orders page that sends a GET request to the my-orders endpoint created in the previous milestone. The user's email is sent to the endpoint to retrieve all their orders, which are then displayed on the page. Additionally, added the My Orders page to the navbar for improved navigation.
+
+## Milestone 28: Cancel Order Feature
+
+## Overview
+In this milestone, we implemented the functionality to cancel placed orders. A cancel button was added to the **My Orders** page, and a backend endpoint was created to update the order status.
+
+## Tasks Completed
+Added a **Cancel Order** button for each order in **My Orders**.
+Ensured the cancel button is not displayed for already canceled orders.
+Created a backend endpoint to receive the **order ID** and update the order status to **canceled**.
+Implemented logic to fetch and update the order in the database.
+
