@@ -333,3 +333,31 @@ In this milestone, we integrated Redux for global state management by storing an
 - Used `dispatch` in the Login page to store the email in the global state.  
 - Accessed the stored email in other pages using `useSelector`.  
 - Learned how to effectively use Redux for managing global  state.
+
+Milestone 33
+In this milestone, we implemented JWT authentication by generating a token and storing it in a cookie.
+
+Key Steps:
+Installed jsonwebtoken package using NPM.
+
+Used the sign method to create a JWT token with the user's email and ID.
+
+Set a maxAge to define the token's expiration time.
+
+Stored the JWT token inside a cookie in the response.
+
+Ensured the cookie is accessible in the browser with proper security settings.
+
+Retrieved the token from the cookie in subsequent requests.
+
+Implemented middleware to verify and decode the JWT token.
+
+Handled errors for expired or invalid tokens.
+
+
+
+
+
+
+
+
