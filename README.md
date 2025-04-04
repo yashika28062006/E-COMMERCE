@@ -332,4 +332,4 @@ In this milestone, we integrated Redux for global state management by storing an
 #### **Key Steps:**  
 - Used `dispatch` in the Login page to store the email in the global state.  
 - Accessed the stored email in other pages using `useSelector`.  
-- Learned how to effectively use Redux for managing global state.
+- Learned how to effectively use Redux for managing global  state.
