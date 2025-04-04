@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Nav from "../components/nav";
+import { useSelector } from 'react-redux'; // Import useSelector
+const userEmail = useSelector((state) => state.user.email);
 
 
 const CreateAddress = () => {
@@ -26,7 +28,7 @@ const CreateAddress = () => {
             address2,
             zipCode,
             addressType,
-            email: "yashikaedify@gmail.com"
+            email: userEmail
         };
 
 

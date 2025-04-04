@@ -2,12 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import Nav from '../components/nav'; 
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux'; // Import useSelector
+const userEmail = useSelector((state) => state.user.email);
 const SelectAddress = () => {
     const [addresses, setAddresses] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
-    const userEmail = 'yashikaedify@gmail.com'; // Replace with dynamic email in production
+    const userEmail = userEmail; // Replace with dynamic email in production
 
     useEffect(() => {
         const fetchAddresses = async () => {
