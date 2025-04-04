@@ -342,6 +342,15 @@ In this milestone, we focused on integrating Redux to manage user email globally
 Key Achievements:
 State Management: Configuring Redux Store
 Installed the react-redux NPM package to enable centralized state management.
+
+### Milestone 32
+
+In this milestone, we integrated Redux for global state management by storing and accessing the user's email across all pages.  
+
+#### **Key Steps:**  
+- Used `dispatch` in the Login page to store the email in the global state.  
+- Accessed the stored email in other pages using `useSelector`.  
+- Learned how to effectively use Redux for managing global state.
 Created a new store folder containing:
 store.js: Configured the Redux store with a userReducer to handle the global email state.
 userActions.js: Defined a setEmail action to update the email in the global state.
