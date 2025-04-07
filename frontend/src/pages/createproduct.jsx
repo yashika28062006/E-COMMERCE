@@ -2,6 +2,7 @@
 // src/components/NavBar.jsx
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import axios  from "../src/axios.config.jsx";
 
 
 const NavBar = () => {

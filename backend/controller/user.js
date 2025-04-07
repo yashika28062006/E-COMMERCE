@@ -9,6 +9,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
 const jwt = require('jsonwebtoken')
+import { isAuthenticatedUser } from "../middleware/auth";
 
 router.post(
   "/create-user",
@@ -103,7 +104,7 @@ router.post(
 
 router.get(
   "/profile",
-  catchAsyncErrors(async (req, res, next) => {
+  catchAsyncErrors(isAuthenticatedUser,async (req, res, next) => {
     const { email } = req.query;
     console.log(req.query.email);
     if (!email) {
@@ -128,7 +129,7 @@ router.get(
 
 router.post(
   "/add-address",
-  catchAsyncErrors(async (req, res, next) => {
+  catchAsyncErrors(isAuthenticatedUser,async (req, res, next) => {
     const { country, city, address1, address2, zipCode, addressType, email } =
       req.body;
 
@@ -159,7 +160,7 @@ router.post(
 
 router.get(
   "/addresses",
-  catchAsyncErrors(async (req, res, next) => {
+  catchAsyncErrors(isAuthenticatedUser,async (req, res, next) => {
     const { email } = req.query;
     if (!email) {
       return next(new ErrorHandler("Please provide an email", 400));

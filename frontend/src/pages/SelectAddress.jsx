@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Nav from '../components/nav'; 
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux'; // Import useSelector
+import axios from "../src/axios.config.jsx"
 const userEmail = useSelector((state) => state.user.email);
 const SelectAddress = () => {
     const [addresses, setAddresses] = useState([]);
@@ -14,7 +15,7 @@ const SelectAddress = () => {
     useEffect(() => {
         const fetchAddresses = async () => {
             try {
-                const response = await fetch(`http://localhost:8000/api/v2/user/addresses?email=${encodeURIComponent(userEmail)}`);
+                const response = await fetch(`/api/v2/user/addresses?email=${encodeURIComponent(userEmail)}`);
 
                 if (!response.ok) {
                     // Handle specific HTTP errors
