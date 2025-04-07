@@ -5,6 +5,7 @@
 import React, { useEffect, useState } from "react";
 import Product from "../components/Product";
 import Nav from "../components/nav";
+import axios from "../src/axios.config,jsx"
 
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
 
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/v2/product/get-products")
+    fetch("/api/v2/product/get-products")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);

@@ -6,6 +6,7 @@ import Nav from "../components/nav";
 import { IoIosAdd } from "react-icons/io";
 import { IoIosRemove } from "react-icons/io";
 import { useSelector } from 'react-redux'; // Import useSelector
+import axios from "../src/axiooos.config.jsx"
 const userEmail = useSelector((state) => state.user.email);
 
 export default function ProductDetails() {
@@ -82,7 +83,7 @@ export default function ProductDetails() {
     const addtocart = async () => {
         try {
             const response = await axios.post(
-                "http://localhost:8000/api/v2/product/cart",
+                "/api/v2/product/cart",
                 {
                     userId: email,
                     productId: id,
@@ -106,7 +107,7 @@ export default function ProductDetails() {
                         <div className="w-full bsm:w-2/3 md:w-1/3 rounded-lg">
                             {product.images && product.images.length > 0 ? (
                                 <img
-                                    src={`http://localhost:8000${product.images[0]}`}
+                                    src={`${product.images[0]}`}
                                     alt={product.name}
                                     className="w-full h-full object-contain bsm:object-cover"
                                     style={{ maxHeight: "500px" }} // Adjust the max height as needed

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Product from "../components/Product";
 import { useSelector } from 'react-redux'; // Import useSelector
 const userEmail = useSelector((state) => state.user.email);
+import axios from "..src/axios.config.jsx"
 
 
 
@@ -14,7 +15,7 @@ export default function MyProducts() {
 
 
     useEffect(() => {
-        fetch(`http://localhost:8000/api/v2/product/my-products?email=${email}`)
+        fetch(`/api/v2/product/my-products?email=${email}`)
             .then((res) => {
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);

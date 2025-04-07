@@ -5,6 +5,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setemail } from "../../store/userActions";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
+import axios from "../src/axios.config.jsx"
 
 
 
@@ -26,7 +27,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/api/v2/user/login", { email, password });
+      const response = await axios.post("/api/v2/user/login", { email, password });
       console.log(response.data);
       // Dispatch action to store email in Redux state
       dispatch(setemail(email));

@@ -6,6 +6,7 @@ import Nav from "../components/nav";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux'; // Import useSelector
 const userEmail = useSelector((state) => state.user.email);
+import axios from "../src/axios.config.jsx"
 export default function Profile() {
     const [personalDetails, setPersonalDetails] = useState({
         name: "",
@@ -18,7 +19,7 @@ export default function Profile() {
     const navigate = useNavigate();
     useEffect(() => {
         fetch(
-            `http://localhost:8000/api/v2/user/profile?email=${"userEmail"}`,
+            `/api/v2/user/profile?email=${"userEmail"}`,
             {
                 method: "GET",
                 headers: {
@@ -62,7 +63,7 @@ export default function Profile() {
                                     PICTURE
                                 </div>
                                 <img
-                                    src={`http://localhost:8000/${personalDetails.avatarUrl}` || `https://cdn.vectorstock.com/i/500p/17/61/male-avatar-profile-picture-vector-10211761.jpg`}
+                                    src={`${personalDetails.avatarUrl}` || `https://cdn.vectorstock.com/i/500p/17/61/male-avatar-profile-picture-vector-10211761.jpg`}
                                     alt="profile"
                                     className="w-40 h-40 rounded-full"
                                     onError={(e) => {
