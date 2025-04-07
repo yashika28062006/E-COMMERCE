@@ -73,4 +73,21 @@ Milestone 22: Storing User Address in Database
 Created a backend endpoint to receive and store user address data. Update the User collection to include an address array. Learn how to store and manage multiple addresses for a user.
 Backend Updates: Address Storage Endpoint Created a POST endpoint (/api/user/address) to receive address data from the frontend. Validated the received address data before storing it in the database. Updated the User model to include an address array for storing multiple addresses. Implemented error handling to ensure data integrity. Frontend Integration Modified the Address Form to send a POST request to the new backend endpoint. Ensured proper state management to handle form input. Provided user feedback (e.g., success message) upon successful address submission.
 
+✅ Milestone 34 Summary: JWT Validation with Cookies
+Frontend:
 
+Extract the JWT token from browser cookies.
+
+Send it to the server with each request (use credentials: 'include' in fetch).
+
+Backend:
+
+Create middleware to extract and validate the JWT token from cookies.
+
+Apply this middleware to all protected routes.
+
+Page Access Control:
+
+Ensure every page checks for a valid token.
+
+Redirect users to the login page if the token is missing or invalid.
